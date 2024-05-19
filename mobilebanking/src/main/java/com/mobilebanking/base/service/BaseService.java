@@ -11,8 +11,12 @@ import java.util.Optional;
 @Transactional
 public abstract class BaseService<T extends BaseModel> {
 
-    @Autowired
     protected BaseRepository<T> repository;
+
+    @Autowired
+    public void setRepository(BaseRepository<T> repository) {
+        this.repository = repository;
+    }
 
     public T save(T entity) {
         return repository.save(entity);

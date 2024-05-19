@@ -11,16 +11,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/accounts")
 public class AccountController extends BaseController<Account> {
-    @Autowired
-    private AccountService accountService;
-
-    @GetMapping("/{id}")
-    public Account getAccountById(@PathVariable Long id) {
-        return accountService.getAccountById(id);
-    }
-
-    @GetMapping
-    public List<Account> getAllAccounts() {
-        return accountService.getAllAccounts();
-    }
+        @Autowired
+        public AccountController(AccountService service) {
+                this.service = service;
+        }
 }

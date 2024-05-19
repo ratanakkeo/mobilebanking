@@ -12,13 +12,7 @@ import java.util.List;
 public class AccountService extends BaseService<Account> {
 
     @Autowired
-    private AccountRepository accountRepository;
-
-    public Account getAccountById(Long id) {
-        return accountRepository.findById(id).orElse(null);
-    }
-
-    public List<Account> getAllAccounts() {
-        return accountRepository.findAll();
+    public AccountService(AccountRepository repository) {
+        this.repository = repository;
     }
 }

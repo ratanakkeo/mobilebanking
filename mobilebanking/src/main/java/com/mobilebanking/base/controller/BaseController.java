@@ -5,13 +5,19 @@ import com.mobilebanking.base.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Optional;
 
 public abstract class BaseController<T extends BaseModel> {
 
-    @Autowired
+
     protected BaseService<T> service;
+
+    @Autowired
+    public void setService(BaseService<T> service) {
+         this.service = service;
+    }
 
     @GetMapping
     public List<T> getAll() {
