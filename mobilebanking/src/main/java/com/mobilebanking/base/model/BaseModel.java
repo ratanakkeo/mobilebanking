@@ -1,4 +1,4 @@
-package com.mobilebanking.models;
+package com.mobilebanking.base.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -11,7 +11,7 @@ import java.util.Date;
 @Getter
 @Setter
 @ToString
-public class BaseEntity {
+public class BaseModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
