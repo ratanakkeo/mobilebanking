@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @Transactional
 public abstract class BaseService<T extends BaseModel> {
+
     @Autowired
     protected BaseRepository<T> repository;
 

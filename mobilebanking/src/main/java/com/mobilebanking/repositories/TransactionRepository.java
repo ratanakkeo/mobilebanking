@@ -1,4 +1,7 @@
 package com.mobilebanking.repositories;
 
-public interface TransactionRepository {
+import com.mobilebanking.base.repository.BaseRepository;
+import com.mobilebanking.models.Transaction;
+
+public interface TransactionRepository extends BaseRepository<Transaction> {
 }

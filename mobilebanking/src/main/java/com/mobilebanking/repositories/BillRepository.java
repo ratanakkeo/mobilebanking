@@ -1,4 +1,7 @@
 package com.mobilebanking.repositories;
 
-public interface BillRepository {
+import com.mobilebanking.base.repository.BaseRepository;
+import com.mobilebanking.models.Bill;
+
+public interface BillRepository extends BaseRepository<Bill> {
 }

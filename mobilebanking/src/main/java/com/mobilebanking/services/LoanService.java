@@ -1,4 +1,7 @@
 package com.mobilebanking.services;
 
-public class LoanService {
+import com.mobilebanking.base.service.BaseService;
+import com.mobilebanking.models.Loan;
+
+public class LoanService extends BaseService<Loan> {
 }
