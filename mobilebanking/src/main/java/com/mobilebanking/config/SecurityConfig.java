@@ -33,6 +33,7 @@ public class SecurityConfig {
                                 .requestMatchers("/h2-console/**").permitAll()
                                 .requestMatchers("/admin/**").hasRole("ADMIN")
                                 .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN")
+                                .requestMatchers("/sendEmail", "/sendDynamicEmail").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
