@@ -16,7 +16,7 @@ public abstract class BaseController<T extends BaseModel> {
 
     @Autowired
     public void setService(BaseService<T> service) {
-         this.service = service;
+        this.service = service;
     }
 
     @GetMapping

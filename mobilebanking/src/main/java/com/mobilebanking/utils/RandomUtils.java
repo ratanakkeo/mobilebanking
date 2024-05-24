@@ -1,11 +1,16 @@
 package com.mobilebanking.utils;
 
 import org.springframework.stereotype.Component;
+
+import java.security.SecureRandom;
 import java.util.Random;
 import java.util.UUID;
 
 @Component
 public class RandomUtils {
+
+    private static final SecureRandom secureRandom = new SecureRandom();
+
     public String generateRandomString(int length) {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         StringBuilder sb = new StringBuilder(length);
@@ -22,23 +27,19 @@ public class RandomUtils {
     }
 
     public String generateRandomAccountNumber() {
-        Random rand = new Random();
-        StringBuilder accountNumber = new StringBuilder(18);
+        StringBuilder accountNumber = new StringBuilder();
         for (int i = 0; i < 18; i++) {
-            accountNumber.append(rand.nextInt(10));
+            accountNumber.append(secureRandom.nextInt(10));
         }
         return accountNumber.toString();
     }
 
     public String generateRandomCreditCardNumber() {
-        String bin = "4539"; // Example BIN for Visa cards
-        StringBuilder number = new StringBuilder(bin);
-        Random rand = new Random();
-        for (int i = 0; i < 12; i++) {
-            number.append(rand.nextInt(10));
+        StringBuilder creditCardNumber = new StringBuilder();
+        for (int i = 0; i < 16; i++) {
+            creditCardNumber.append(secureRandom.nextInt(10));
         }
-        number.append(calculateLuhnCheckDigit(number.toString()));
-        return number.toString();
+        return creditCardNumber.toString();
     }
 
     private int calculateLuhnCheckDigit(String number) {

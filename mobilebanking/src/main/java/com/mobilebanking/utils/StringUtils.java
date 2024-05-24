@@ -54,7 +54,7 @@ public class StringUtils {
             return false;
         }
         String cleanStr = str.replaceAll("\\s+", "").toLowerCase();
-        return cleanStr.equals(new StringBuilder(cleanStr).reverse().toString());
+        return cleanStr.contentEquals(new StringBuilder(cleanStr).reverse());
     }
 
     public String listToString(List<String> list, String delimiter) {
